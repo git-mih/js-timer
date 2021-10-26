@@ -8,7 +8,8 @@ class Timer {
             this.onTick = callbacks.onTick;
             this.onComplete = callbacks.onComplete;
         }
-
+        
+        // Should I use the constructor in order to add the events?
         this.startButton.addEventListener('click', this.start);
         this.pauseButton.addEventListener('click', this.pause);
     }
@@ -27,6 +28,9 @@ class Timer {
 
 
     tick = () => {
+        
+        // Lots of if-else statements, might be a better way.
+        // I also dont like the fact that im using 'this' everywhere.
         if (this.timeRemaining <= 0) {
             this.pause();
             if (this.onComplete) {
